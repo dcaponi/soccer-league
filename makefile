@@ -1,5 +1,5 @@
 ship:
-	go build ./... && bash ship.sh github.com/dcaponi/soccer-league-2020
+	go build ./... && sh ship.sh github.com/dcaponi/soccer-league-2020
 
 test:
 	go get github.com/jpoles1/gopherbadger
@@ -12,4 +12,4 @@ run:
 	go build ./... && go run .
 
 check:
-	go build ./... && bash check.sh
+	go build ./... && sh check.sh
