@@ -46,13 +46,22 @@ tie for 3rd place in the sample data).
 
 ### Build / Test / Run
 
-To run the macos binary `make run-macos`
-
 To run the tests & report coverage (requires golang) `make test`
 
-To install as a cli utility (only tested on mac - windows may vary) `make install`
+To build/install as a cli utility with golang (only tested on mac - windows may vary) `make install`
 
-Run without adding to bin or path (requires golang) `make run`
+To add the pre-built binary to path (macos) `make install-macos`
+
+#### ⚠️ A Note About MacOS Binaries & Security ⚠️
+You'll likely get hit with a security warning when you try running the pre-built binary for the first time.
+
+To fix, go to System Preferences > Security & Privacy
+
+you'll be presented with the warning about the binary not being from an identified developer. Allow this app to run.
+
+Try running the command again and click Open from the popup and you should be good to go.
+
+Run without adding to bin or path (requires golang) `make run-supplied` or `make run-n-ties` or `make run-all-ties`
 
 Run smoke test on sample-inputs and compare to expected outputs (requires golang) `make check`
 
@@ -65,3 +74,5 @@ Add script for running convenience checks on windows machines
 Dockerize
 
 Add Github action for CI/CD
+
+Install script beyond the `make install` command that is only tested on macos
