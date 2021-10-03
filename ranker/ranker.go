@@ -17,31 +17,31 @@ func CollectOutcomes(inputFile io.Reader) []Outcome {
 	sc := bufio.NewScanner(inputFile)
 	sc.Split(bufio.ScanLines)
 
-	team_points := map[string]int{}
+	teamPoints := map[string]int{}
 
 	for sc.Scan() {
 		teams := strings.Split(sc.Text(), ", ")
 
-		a_team := strings.Split(teams[0], " ")
-		b_team := strings.Split(teams[1], " ")
+		aTeam := strings.Split(teams[0], " ")
+		bTeam := strings.Split(teams[1], " ")
 
-		a_team_name, a_team_score := strings.Join(a_team[0:len(a_team)-1], " "), a_team[len(a_team)-1]
-		b_team_name, b_team_score := strings.Join(b_team[0:len(b_team)-1], " "), b_team[len(b_team)-1]
+		aTeamNoints, aTeam_score := strings.Join(aTeam[0:len(aTeam)-1], " "), aTeam[len(aTeam)-1]
+		bTeamNoints, bTeam_score := strings.Join(bTeam[0:len(bTeam)-1], " "), bTeam[len(bTeam)-1]
 
-		if a_team_score > b_team_score {
-			team_points[a_team_name] += 3
-			team_points[b_team_name] += 0
-		} else if a_team_score < b_team_score {
-			team_points[a_team_name] += 0
-			team_points[b_team_name] += 3
-		} else if a_team_score == b_team_score {
-			team_points[a_team_name] += 1
-			team_points[b_team_name] += 1
+		if aTeam_score > bTeam_score {
+			teamPoints[aTeamNoints] += 3
+			teamPoints[bTeamNoints] += 0
+		} else if aTeam_score < bTeam_score {
+			teamPoints[aTeamNoints] += 0
+			teamPoints[bTeamNoints] += 3
+		} else if aTeam_score == bTeam_score {
+			teamPoints[aTeamNoints] += 1
+			teamPoints[bTeamNoints] += 1
 		}
 	}
-	outcomes := make([]Outcome, len(team_points))
+	outcomes := make([]Outcome, len(teamPoints))
 	i := 0
-	for k, v := range team_points {
+	for k, v := range teamPoints {
 		outcomes[i] = Outcome{Team: k, Score: v}
 		i++
 	}
