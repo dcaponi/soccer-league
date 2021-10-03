@@ -10,3 +10,6 @@ install:
 
 run:
 	go build ./... && go run .
+
+check:
+	go build ./... && bash check.sh
