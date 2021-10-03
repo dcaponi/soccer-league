@@ -76,3 +76,14 @@ Dockerize
 Add Github action for CI/CD
 
 Install script beyond the `make install` command that is only tested on macos
+
+### Discussion Points
+
+Attempted parallelization of alphabetical sorting part and inserting sorted outcomes in parallel with other goroutines
+
+This was leading to a situation where the unit test fails (the array is sorted but the test reports the expected outcome is not the same as the ) but the integration test (i.e. running the program against the sample-inputs) was running fine.
+
+I belive this is due to the way the array is being accessed at different parts simultatnously by the spawned goroutines
+
+I havent had enough time to deep dive and see if this is a problem with my unit test or a situation that needs to be handled
+by controlling the access of the array with channels
