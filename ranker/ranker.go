@@ -5,6 +5,7 @@ import (
 	"io"
 	"sort"
 	"strings"
+	"sync"
 )
 
 // CollectOutcomes reads from a file (or any structure that implements io.Reader) and
@@ -58,7 +59,7 @@ func SortOutcomes(raw []Outcome) {
 	sort.Sort(byScore(raw))
 
 	i, rank := 0, 0
-
+	wg := new(sync.WaitGroup)
 	for i < len(raw) {
 		rank++
 		raw[i].Ranking = rank
@@ -78,22 +79,27 @@ func SortOutcomes(raw []Outcome) {
 
 			// insert items to alphabetize
 			for count > 0 {
+				raw[j].Ranking = rank
 				t[len(t)-count] = raw[j]
 				j++
 				count--
 			}
+			wg.Add(1) // tells wait group to wait for another goroutine
+			go func(n int, src, toSort []Outcome, wg *sync.WaitGroup) {
+				defer wg.Done() // report done at the end of the routine
+				sort.Sort(byName(t))
 
-			sort.Sort(byName(t))
-
-			// re-insert alphabetized items into their correct slots in original array
-			for _, o := range t {
-				o.Ranking = rank
-				raw[i] = o
-				i++
-			}
+				// re-insert alphabetized items into their correct slots in original array
+				for _, o := range toSort {
+					src[n] = o
+					n++
+				}
+			}(i, raw, t, wg)
+			i = j
 
 		} else {
 			i++
 		}
 	}
+	wg.Wait() // blocks the SortOutcomes function until all outstanding goroutines report in done
 }
