@@ -12,8 +12,8 @@ type Outcome struct {
 type byScore []Outcome
 
 func (a byScore) Len() int           { return len(a) }
-func (a byScore) Less(i, j int) bool { return a[i].Score > a[j].Score }
 func (a byScore) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a byScore) Less(i, j int) bool { return a[i].Score > a[j].Score }
 
 type byName []Outcome
 

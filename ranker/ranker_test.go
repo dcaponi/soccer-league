@@ -14,9 +14,9 @@ func TestCollectOutcomes(t *testing.T) {
 		ExpectedOutput []Outcome
 	}{
 		"it collects the outcomes of the matches": {
-			InputFile: strings.NewReader("Robots 3, Spammers 3\nThieves 1, FC Fraudsters 0\nRobots 1, FC Fraudsters 1\nSpammers 1, Thieves 3\nRobots 4, Grandparents 0\n"),
+			InputFile: strings.NewReader("Robots 3, Spammers 3\nThieves 4 lyfe 😈 2 1, FC Fraudsters 0\nRobots 1, FC Fraudsters 1\nSpammers 1, Thieves 4 lyfe 😈 2 3\nRobots 4, Grandparents 0\n"),
 			ExpectedOutput: []Outcome{
-				{Team: "Thieves", Score: 6, Ranking: 0},
+				{Team: "Thieves 4 lyfe 😈 2", Score: 6, Ranking: 0},
 				{Team: "Robots", Score: 5, Ranking: 0},
 				{Team: "FC Fraudsters", Score: 1, Ranking: 0},
 				{Team: "Spammers", Score: 1, Ranking: 0},
