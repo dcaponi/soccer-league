@@ -48,10 +48,20 @@ tie for 3rd place in the sample data).
 
 To run the macos binary `make run-macos`
 
-To run the tests (requires golang) `make test`
+To run the tests & report coverage (requires golang) `make test`
 
 To install as a cli utility (only tested on mac - windows may vary) `make install`
 
-Run wintout adding to bin or path (requires golang) `make run`
+Run without adding to bin or path (requires golang) `make run`
+
+Run smoke test on sample-inputs and compare to expected outputs (requires golang) `make check`
 
 To run one of the builds without golang - involke the binary whos name matches your system architecture as you would when running compiled code from the command line. e.g. `./build/soccer-league-2020-darwin-amd64` or use one of the makefile commands (not tested on windows) 
+
+### Todo
+
+Add script for running convenience checks on windows machines
+
+Dockerize
+
+Add Github action for CI/CD
