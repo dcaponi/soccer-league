@@ -25,9 +25,11 @@ func main() {
 	if err != nil {
 		log.Fatalln("unable to open file", p)
 	}
+	defer f.Close()
 
 	outcomes := ranker.CollectOutcomes(f)
 	ranker.SortOutcomes(outcomes)
+
 	for _, outcome := range outcomes {
 		unit := "pts"
 		if outcome.Score == 1 {

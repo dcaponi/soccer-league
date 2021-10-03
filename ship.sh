@@ -32,5 +32,3 @@ do
     fi
 
 done
-
-rm $package_name

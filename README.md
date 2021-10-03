@@ -10,10 +10,12 @@ A command-line application that calculates the ranking table for a soccer league
 
 The input is a text file (.txt) provided by a file passed by name on the command line. 
 
-`soccer-league-2002 input.txt`
+`soccer-league-2020 input.txt`
 
 The input contains results of games, one per line. The output should be ordered from most to least points.
 
+
+#### Supplied Input
 ```
 Robots 3, Spammers 3
 Thieves 1, FC Fraudsters 0
@@ -22,6 +24,7 @@ Thieves 3, Spammers 1
 Robots 4, Grandparents 0
 ```
 
+#### Supplied Expected Output
 ```
 1. Thieves, 6 pts
 2. Robots, 5 pts
@@ -52,7 +55,3 @@ To install as a cli utility (only tested on mac - windows may vary) `make instal
 Run wintout adding to bin or path (requires golang) `make run`
 
 To run one of the builds without golang - involke the binary whos name matches your system architecture as you would when running compiled code from the command line. e.g. `./build/soccer-league-2020-darwin-amd64` or use one of the makefile commands (not tested on windows) 
-
-`make run-macos`
-`make run-linux-amd`
-`make run-linux-386`
