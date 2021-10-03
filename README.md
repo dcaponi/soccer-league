@@ -1,21 +1,34 @@
 ## The problem
 
-We want you to create a command-line application that will calculate the
-ranking table for a soccer league.
+A command-line application that calculates the ranking table for a soccer league.
 
 ### Input/output
 
-The input and output will be text. Your solution should parse the provided
-`input-sample.txt` file via stdin (pipe or redirect) or by parsing a file passed
-by name on the command line. Your solution should output the correct result via
-stdout to the console.
+The input is a text file (.txt) provided by a file passed by name on the command line. 
 
-The input contains results of games, one per line. See `input-sample.txt` for
-details. The output should be ordered from most to least points, following the
-format specified in `output-expected.txt`.
+`soccer-league-2002 input.txt`
 
-You can expect that the input will be well-formed. There is no need to add
-special handling for malformed input files.
+The input contains results of games, one per line. The output should be ordered from most to least points.
+
+```
+Robots 3, Spammers 3
+Thieves 1, FC Fraudsters 0
+Robots 1, FC Fraudsters 1
+Thieves 3, Spammers 1
+Robots 4, Grandparents 0
+```
+
+```
+1. Thieves, 6 pts
+2. Robots, 5 pts
+3. FC Fraudsters, 1 pt
+3. Spammers, 1 pt
+4. Grandparents, 0 pts
+```
+
+Assumes the input is well-formed. There is no special handling for malformed input files.
+
+Assumes one file input at a time and the file will always be .txt type
 
 ### The rules
 
@@ -24,30 +37,18 @@ loss is worth 0 points. If two or more teams have the same number of points,
 they should have the same rank and be printed in alphabetical order (as in the
 tie for 3rd place in the sample data).
 
-### Guidelines
+### Build / Test / Run
 
-This should be implemented in a language with which you are familiar. We would
-prefer that you use Scala or Java, if you are comfortable doing so.
-If none of these are comfortable, please choose a language that is both
-suited to the task and productive for you.
+To run the macos binary `make run-macos`
 
-Your solution should be able to be run (and if applicable, built) from the
-command line. Please include appropriate scripts and instructions for
-running your application and your tests.
+To run the tests (requires golang) `make test`
 
-If you use other libraries installed by a common package manager (for example:
-npm), it is not necessary to submit the installed packages within your overall
-solution.
+To install as a cli utility (only tested on mac - windows may vary) `make install`
 
-We write automated tests and we would like you to do so as well.
+Run wintout adding to bin or path (requires golang) `make run`
 
-We appreciate well-factored, object-oriented or functional designs.
+To run one of the builds without golang - involke the binary whos name matches your system architecture as you would when running compiled code from the command line. e.g. `./build/soccer-league-2020-darwin-amd64` or use one of the makefile commands (not tested on windows) 
 
-Please document any steps necessary to run your solution and your tests.
-
-### Platform support
-
-This will be run in a unix-like environment, macOS. If you choose to use a
-compiled language, please keep this in mind. Please use platform-agnostic
-constructs where possible (line-endings and file-path-separators are two
-problematic areas).
+`make run-macos`
+`make run-linux-amd`
+`make run-linux-386`

@@ -1,0 +1,26 @@
+mode: set
+github.com/dcaponi/soccer-league-2020/ranker/outcome.go:14.38,14.55 1 1
+github.com/dcaponi/soccer-league-2020/ranker/outcome.go:15.38,15.72 1 1
+github.com/dcaponi/soccer-league-2020/ranker/outcome.go:16.38,16.65 1 1
+github.com/dcaponi/soccer-league-2020/ranker/outcome.go:20.32,20.49 1 1
+github.com/dcaponi/soccer-league-2020/ranker/outcome.go:21.32,21.59 1 1
+github.com/dcaponi/soccer-league-2020/ranker/outcome.go:22.37,24.2 1 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:16.53,22.16 4 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:42.2,44.32 3 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:48.2,48.17 1 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:22.16,31.34 6 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:31.34,34.4 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:34.9,34.41 1 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:34.41,37.4 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:37.9,37.42 1 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:37.42,40.4 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:44.32,47.3 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:57.34,62.19 3 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:62.19,66.55 3 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:66.55,70.53 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:76.4,80.18 3 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:86.4,89.24 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:70.53,73.5 2 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:80.18,84.5 3 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:89.24,93.5 3 1
+github.com/dcaponi/soccer-league-2020/ranker/ranker.go:95.9,97.4 1 1
