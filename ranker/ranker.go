@@ -26,18 +26,18 @@ func CollectOutcomes(inputFile io.Reader) []Outcome {
 		aTeam := strings.Split(teams[0], " ")
 		bTeam := strings.Split(teams[1], " ")
 
-		aTeamNoints, aTeamScore := strings.Join(aTeam[0:len(aTeam)-1], " "), aTeam[len(aTeam)-1]
-		bTeamNoints, bTeamScore := strings.Join(bTeam[0:len(bTeam)-1], " "), bTeam[len(bTeam)-1]
+		aTeamPoints, aTeamScore := strings.Join(aTeam[0:len(aTeam)-1], " "), aTeam[len(aTeam)-1]
+		bTeamPoints, bTeamScore := strings.Join(bTeam[0:len(bTeam)-1], " "), bTeam[len(bTeam)-1]
 
 		if aTeamScore > bTeamScore {
-			teamPoints[aTeamNoints] += 3
-			teamPoints[bTeamNoints] += 0
+			teamPoints[aTeamPoints] += 3
+			teamPoints[bTeamPoints] += 0
 		} else if aTeamScore < bTeamScore {
-			teamPoints[aTeamNoints] += 0
-			teamPoints[bTeamNoints] += 3
+			teamPoints[aTeamPoints] += 0
+			teamPoints[bTeamPoints] += 3
 		} else if aTeamScore == bTeamScore {
-			teamPoints[aTeamNoints] += 1
-			teamPoints[bTeamNoints] += 1
+			teamPoints[aTeamPoints] += 1
+			teamPoints[bTeamPoints] += 1
 		}
 	}
 	outcomes := make([]Outcome, len(teamPoints))
