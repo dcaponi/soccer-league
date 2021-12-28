@@ -65,9 +65,11 @@ func SortOutcomes(raw []Outcome) {
 		raw[i].Ranking = rank
 		// if current and next outcomes have same score
 		if i < len(raw)-1 && raw[i].Score == raw[i+1].Score {
+			wg.Add(1) // tells wait group to wait for another goroutine
 			count, j := 0, i
 
 			// move j forward until outcome j is different score while counting items to alphabetize
+			// pre-compute the length of t to cut down on re-allocations
 			for j < len(raw) && raw[i].Score == raw[j].Score {
 				j++
 				count++
@@ -79,15 +81,15 @@ func SortOutcomes(raw []Outcome) {
 
 			// insert items to alphabetize
 			for count > 0 {
-				raw[j].Ranking = rank
+				raw[j].Ranking = rank // assign same rank to teams with same score
 				t[len(t)-count] = raw[j]
 				j++
 				count--
 			}
-			wg.Add(1) // tells wait group to wait for another goroutine
+
 			go func(n int, src, toSort []Outcome, wg *sync.WaitGroup) {
 				defer wg.Done() // report done at the end of the routine
-				sort.Sort(byName(t))
+				sort.Sort(byName(toSort))
 
 				// re-insert alphabetized items into their correct slots in original array
 				for _, o := range toSort {
